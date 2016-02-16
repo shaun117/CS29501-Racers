@@ -15,3 +15,16 @@ function loadSettings() {
 function loadCampaign() {
 	Application.LoadLevel("CampaignScene");
 	}
+
+
+function loadAbout() {
+	Application.LoadLevel("AboutScene");
+	} 
+
+function loadGarage() {
+	Application.LoadLevel("GarageScene");
+	}
+
+function quitGame() {
+	Application.Quit();
+	}
