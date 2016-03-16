@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Vehicle Physics Toolkit v1.4/Scenes/DemoPC.unity
+  isLoaded: 1
+  isActive: 1
