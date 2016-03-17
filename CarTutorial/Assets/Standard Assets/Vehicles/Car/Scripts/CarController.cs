@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
@@ -54,6 +55,7 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
+		public Text SpeedoText;
 
         // Use this for initialization
         private void Start()
@@ -69,8 +71,18 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
+
+			updateSpeedo ();
         }
 
+		void Update() {
+			updateSpeedo ();
+		}
+
+		void updateSpeedo() {
+			double speed = Math.Round (CurrentSpeed);
+			SpeedoText.text = speed.ToString ();
+		}
 
         private void GearChanging()
         {
@@ -88,6 +100,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 m_GearNum++;
             }
         }
+
 
 
         // simple function to add a curved bias towards 1 for a value in the 0-1 range
