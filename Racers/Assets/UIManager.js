@@ -5,7 +5,7 @@ function OpenStart() {
 	}
 
 function loadRace() {
-	Application.LoadLevel("Race Scene");
+	Application.LoadLevel("RaceScene");
 	}
 
 function loadSettings() {
