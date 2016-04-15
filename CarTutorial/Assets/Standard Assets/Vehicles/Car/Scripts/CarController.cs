@@ -79,6 +79,7 @@ namespace UnityStandardAssets.Vehicles.Car
 			updateSpeedo ();
 		}
 
+
 		void updateSpeedo() {
 			double speed = Math.Round (CurrentSpeed);
 			SpeedoText.text = speed.ToString ();
