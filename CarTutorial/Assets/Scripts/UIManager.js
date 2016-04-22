@@ -1,5 +1,6 @@
 ﻿#pragma strict
 
+
 function OpenStart() {
 	Application.LoadLevel("StartScene");
 	}
