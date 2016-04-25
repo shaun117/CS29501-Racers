@@ -15,8 +15,6 @@ public class WayPointController : MonoBehaviour {
 	private Vector3 currentPos;   //Current position of the waypoint
 	private Vector3 lastPos; 	  //last waypoint position car was at
 	private Vector3 lastWaypoint; 
-	public Text lapText;
-	public int lapCount;
 
 	// Use this for initialization
 	void Start () {
@@ -80,7 +78,6 @@ public class WayPointController : MonoBehaviour {
 			//update the current pointing transform
 			pointT = (Transform) transforms [i];
 
-			//lastWaypoint = (Transform)transforms [i];
 		}
 
 		//close the path and visualize the line around the entire track.
@@ -118,10 +115,5 @@ public class WayPointController : MonoBehaviour {
 		return totalTransforms;
 	}
 
-	/*void updateLap() {
-		if (lastPos = lastWaypoint)
-			lapCount++;
-		lapText.text = lapCount.ToString (); 
-	}
-		*/
+
 }

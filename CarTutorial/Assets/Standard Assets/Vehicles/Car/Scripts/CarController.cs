@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement; 
+using System.Collections;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
@@ -56,6 +58,11 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 		public Text SpeedoText;
+		public BoxCollider finishLine;
+		public Text lapCount; 
+		private int lap; 
+		protected bool isFirstLap;
+		private int count; 
 
         // Use this for initialization
         private void Start()
@@ -73,7 +80,34 @@ namespace UnityStandardAssets.Vehicles.Car
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
 
 			updateSpeedo ();
+			lap = 1; 
+			isFirstLap = true; 
         }
+
+		void OnTriggerEnter(Collider col) {
+			count++; 
+			if (col.gameObject.name == "FinishLine" && !isFirstLap && lap < 3) {
+				lap++; 
+				lapCount.text = lap.ToString ();
+			}
+			if (col.gameObject.name == "FinishLine") {
+				isFirstLap = false; 
+			}
+			if (count > 3) {
+				StartCoroutine ("RaceOver"); 
+			}
+				
+				
+		}
+
+		IEnumerator RaceOver() {
+
+			CarController cc = GetComponent(typeof(CarController)) as CarController;
+			cc.enabled = false; 
+			yield return new WaitForSeconds (5); 
+			Application.LoadLevel ("PostRace");
+
+		}
 
 		void Update() {
 			updateSpeedo ();
