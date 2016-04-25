@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/PostRace.unity
+=======
+- path: Assets/Scenes/StatisticalVariableSelectionScene.unity
+>>>>>>> 8352250af220d27c2a33ccd960eba7e486a74cc3
   isLoaded: 1
   isActive: 1
